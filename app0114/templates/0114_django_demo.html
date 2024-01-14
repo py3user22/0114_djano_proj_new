@@ -7,11 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         p {padding: 5px; border: 2px blue dashed;}
-        .unli {border: green 1px dashed; padding: 5px;}
-        .clas {color: red;}
-        .meit {color: brown;}
-        .meiv {color: brown;}
-        .intr {color: orange;}
+        .unli {border: green 1px dashed; padding: 5px 10px 5px 25px;}
+        .clas {color: red;} .meit {color: brown;}
+        .meiv {color: brown;} .intr {color: orange;}
+        #ttop {color: green;} #ttop:hover {color: tan;}
     </style>
     <title>0114 django proj demo4 </title>
 </head>
@@ -27,34 +26,75 @@
         <li>Delete menu items</li> <br>
         <li>Get random menu items for special ad.</li> <br>
     </ul>
+    <br>
+    <a href="#tbot" id="ttop">To bottom page</a>
+    <br>
     <p>
         __#ex0114 demo <b><i>models.py</i></b> <br> -------------------- <br>
+        <sup class="intr">
+            from django.db import models <br>
+        </sup> <br>
+
         | <a href="clas" class="clas">class</a> <a href="meit" class="meit">MenuItem</a>(models.Model): <br>
         | .. title = models.CharField(max_length=255) <br>
         | .. price = models.DecimalField(max_digits=6, decimal_places=2) <br>
         | .. inventory = models.SmallIntegerField() <br>
+        <br>
+        <br>
+        _______________________________________<br>
+        _________# <b><i>admin.py</i></b> <br>--------------------------<br>
+        <sup class="intr">
+            from .models import MenuItem <br>
+            from django.contrib import admin <br>
+        </sup> <br>
 
-
+        admin.site.register(<a href="meit" class="meit">MenuItem</a>) <br>
+        <br><br>
 
     </p>
     <p>
-        ___#0114 note: <br>----------------<br>
+        ___#0114 note: <br>----------------
         serializers <br>-----------<br> help convert model instances to python database that can be displayed as JSON or XML <br>
         <br>
-        <br>
+        <br>__________________________________<br>
         _________# <b><i>serializers.py </i></b> <br>--------------------- <br>
+        <sup class="intr">
+            from .models import MenuItem <br>
+            from rest_framework import serializers <br>
+        </sup>
+        <br>
+        | <a href="clas" class="clas">class</a> <a href="meit" class="meit">MenuItemSerializer</a>(serializers.ModelSerializer): <br>
+        | <br>
+        | .. <a href="clas" class="clas">class</a> Meta <br>
+        | ...... model = <a href="meit" class="meit">MenuItem</a> <br>
+        | ...... fields = ['id', 'title', 'price', 'inventory'] <br>
+        <br>
+        <br>__________________________________<br>
+        _________# <b><i>views.py </i></b> <br>--------------------- <br>
         <sup class="intr">
             from .models import MenuItem <br>
             from .serializers import MenuItemSerializer <br>
             from rest_framework import generics <br>
         </sup>
         <br>
-        <br>
+
         | <a href="clas" class="clas">class</a> <a href="meiv" class="meiv">MenuItemView</a>(generics.ListCreateAPIView): <br>
         | .. queryset = <a href="meit" class="meit">MenuItem</a>.objects.all() <br>
         | .. serializer_class = <a href="meiv" class="meiv">MenuItemSerializer</a> <br>
+        <br><br>__________________________________<br>
+        _________# <b><i>urls.py</i></b> <br>--------------------<br>
+        <sup class="intr">
+            from django.urls import path <br>
+            from <b>.</b> import views <br>
+        </sup>
+        <br>
+        <br>
+        | urlpatterns = [ <br>
+        | .. path('menu-items', views.<a href="meiv" class="meiv">MenuItemView</a>.as_view()), <br>
+        | ] <br>
     </p>
 
-
+    <br><br>
+    <a href="#ttop" id="tbot">To top of page</a>
 </body>
 </html>
