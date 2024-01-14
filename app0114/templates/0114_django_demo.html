@@ -41,6 +41,7 @@
         | .. inventory = models.SmallIntegerField() <br>
         <br>
         <br>
+
         _______________________________________<br>
         _________# <b><i>admin.py</i></b> <br>--------------------------<br>
         <sup class="intr">
@@ -81,7 +82,14 @@
         | <a href="clas" class="clas">class</a> <a href="meiv" class="meiv">MenuItemView</a>(generics.ListCreateAPIView): <br>
         | .. queryset = <a href="meit" class="meit">MenuItem</a>.objects.all() <br>
         | .. serializer_class = <a href="meiv" class="meiv">MenuItemSerializer</a> <br>
-        <br><br>__________________________________<br>
+        <br><br>
+        | <a href="clas" class="clas">class</a> <a href="meiv" class="meiv">SingleMenuItemView</a>(generics.RetrieveUpdateAPIView, generics.DestroyAPIView): <br>
+        | .. queryset = <a href="meit" class="meit">MenuItem</a>.objects.all() <br>
+        | .. serializer_class = <a href="meiv" class="meiv">MenuItemSerializer</a> <br>
+        <br><br>
+
+
+        __________________________________<br>
         _________# <b><i>urls.py</i></b> <br>--------------------<br>
         <sup class="intr">
             from django.urls import path <br>
@@ -91,6 +99,8 @@
         <br>
         | urlpatterns = [ <br>
         | .. path('menu-items', views.<a href="meiv" class="meiv">MenuItemView</a>.as_view()), <br>
+        | .. path('menu-items/< int:pk>', views.<a href="meiv" class="meiv">SingleMenuItemView</a>.as_view()), <br>
+
         | ] <br>
     </p>
 
