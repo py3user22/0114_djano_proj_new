@@ -8,60 +8,62 @@
     <style>
         p {padding: 5px; border: 1px green dashed;}
         .urls {color: purple;}
+        .yes {color: green;}
     </style>
     <title>0114 django final proj questions for passing</title>
 </head>
 <body>
     <h2>0114 django final proj </h2>
     <p>
-        Test if the admin can assign users to the manager group: <br>---------------------------<br>
+        <b><i>Section1</i></b>  Test if the admin can assign users to the manager group: <br>---------------------------<br>
         <br>
-        <br>
+
         Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/groups/manager/users</a> ........ with a valid admin token and a valid username in the HTTP REQUEST body. <br>
         <br>
         Was the user added to the manager group with an admin token?<br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if you can access the manager group with an admin token:<br>---------------------------<br>
+        <b><i>Section1.2</i></b> Test if you can access the manager group with an admin token:<br>---------------------------<br>
         <br>
         Make a GET call to <a href="urls" class="urls">http://127.0.0.1:8000/api/groups/manager/users</a> ......... with an admin token.<br>
         <br>
         Is there a list of users from the manager group in the API output? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if the admin can add menu items: <br>---------------------------<br>
+        <b><i>Section1.3</i></b> Test if the admin can add menu items: <br>---------------------------<br>
         <br>
-        Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/menu-items</a> .......... with the admin token and necessary data. Or, log into the Django admin panel as super admin and then browse this endpoint in your browser and add some menu items. <br>
+        Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/menu-items</a> .......... with the admin token and necessary data. <br>
+        Or, log into the Django admin panel as super admin and then browse this endpoint in your browser and add some menu items. <br>
         <br>
-        Can the admin add menu items? <br> 1 pt Yes | 0 pts No <br>
+        Can the admin add menu items? <br> <a href="yes" class="yes">1pt Yes</a> | <strike>0 pts No</strike> <br>
         <br>
-        Test if the admin can add categories: <br>---------------------------<br>
+        <br> <b><i>Section1.4</i></b> Test if the admin can add categories: <br>---------------------------<br>
         Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/categories</a> ........ with the admin token and necessary data. <br>
         Or log into the Django admin panel as super admin and then browse this endpoint in your browser and add some menu items. <br>
         <br>
         Can the admin add categories? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if the manager can log in: <br>---------------------------<br>
+        <br> <b><i>Section1.5</i></b> Test if the manager can log in: <br>---------------------------<br>
         <br>
         Make a POST call to this endpoint  <a href="urls" class="urls">http://127.0.0.1:8000/auth/token/login/</a> ....... with the username and password of a manager. <br>
         <br>
         Is the access token in the API output? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if the manager can update the item of the day: <br>---------------------------<br>
+        <br> <b><i>Section1.6</i></b> Test if the manager can update the item of the day: <br>---------------------------<br>
         <br>
         Make a PATCH call to the endpoint of any single menu item endpoint like this <a href="urls" class="urls">http://127.0.0.1:8000/api/menu-items/1</a> ..... Opens in a new tab with a manager token.<br> Add a featured field in the REQUEST body with its value set to true or false. <br>
         <br>
         Did the value of the featured field update for this particular menu item? <br>
         1 pt Yes | 0 pts No <br>
-        Test if the manager can assign users to the delivery crew: <br>---------------------------<br>
+        <br> <b><i>Section1.7</i></b> Test if the manager can assign users to the delivery crew: <br>---------------------------<br>
         <br>
         Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/groups/manager/users </a> <br> Opens in a new tab with a valid manager token and a valid username in the HTTP REQUEST body. <br>
         <br>
         Can the manager assign users to the delivery crew group? <br> 1 pt Yes | 0 pts No <br>
         <br>
-        Test if the manager can assign orders to the delivery crew: <br>---------------------------<br>
+        <br> <b><i>Section1.8</i></b> Test if the manager can assign orders to the delivery crew: <br>---------------------------<br>
         <br>
         Make a PATCH call to an endpoint of any single order item like this <a href="urls" class="urls"> http://127.0.0.1:8000/api/orders/1 </a> <br>
         Opens in a new tab with a manager token. <br>
@@ -70,13 +72,13 @@
         Can the managers assign orders to a delivery crew? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if the delivery crew can view orders assigned to them: <br>---------------------------<br>
+        <br> <b><i>Section1.9</i></b> Test if the delivery crew can view orders assigned to them: <br>---------------------------<br>
         <br>
         Make a GET call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/orders </a> <br> Opens in a new tab with a delivery crew token. <br>
         <br>
         Can the delivery crew browse orders that were assigned to them? <br>
         1 pt Yes | 0 pts No <br>
-        Test if the delivery crew can update an order as delivered: <br>---------------------------<br>
+        <br> <b><i>Section2</i></b> Test if the delivery crew can update an order as delivered: <br>---------------------------<br>
         <br>
         Make a PATCH call to this endpoint to any single order item endpoint like this <a href="urls" class="urls"> http://127.0.0.1:8000/api/orders/1 </a> <br>
         Opens in a new tab with a delivery crew token. <br>
@@ -85,7 +87,7 @@
         Can the delivery crew update the order status? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can register: <br>---------------------------<br>
+        <br> <b><i>Section2.1</i></b> Test if customers can register: <br>---------------------------<br>
         <br>
         Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/auth/users/ </a> <br>
         with a username, password and email in the HTTP REQUEST body. <br>
@@ -93,60 +95,60 @@
         Can customers register using this endpoint? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can log in using their username and password and get access tokens: <br>---------------------------<br>
+        <br> <b><i>Section2.2</i></b> Test if customers can log in using their username and password and get access tokens: <br>---------------------------<br>
         <br>
         Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/auth/token/login/ </a> <br> with a valid username and password in the HTTP Request body. <br>
         <br>
          Is the access token visible in the API output? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can browse all categories: <br>---------------------------<br>
+        <br> <b><i>Section2.3</i></b> Test if customers can browse all categories: <br>---------------------------<br>
         <br>
         Make a GET API call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/categories </a> .... with a customer token <br>
         <br>
         Are the categories visible to customers? <br>
         1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can browse all menu items: <br>---------------------------<br>
+        <br> <b><i>Section2.4</i></b> Test if customers can browse all menu items: <br>---------------------------<br>
         <br>
         Make a GET API call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/menu-items </a> .....  with a customer token <br>
         <br>
         Are the menu items visible to customers? <br> 1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can browse menu items by category: <br>---------------------------<br>
+        <br> <b><i>Section2.5</i></b> Test if customers can browse menu items by category: <br>---------------------------<br>
         <br>
         Make a GET API call to these endpoints, <a href="urls" class="urls"> http://127.0.0.1:8000/api/menu-items?search=Icecream </a> <br>
         or any available category name instead of Icecream with a customer token. <br>
         <br>
         Do the menu items in the category display for customers? <br> 1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can paginate menu items: <br>---------------------------<br>
+        <br> <b><i>Section2.6</i></b> Test if customers can paginate menu items: <br>---------------------------<br>
         <br>
         Make a GET API call to the endpoints <a href="urls" class="urls">http://127.0.0.1:8000/api/menu-items?page=1 </a> <br>
         or <a href="urls" class="urls">http://127.0.0.1:8000/api/menu-items?page=2 </a> ...........with a customer token. <br>
         <br>
         Do the menu items display proper pagination for customers? <br> 1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can sort menu items by price: <br>---------------------------<br>
+        <br> <b><i>Section2.7</i></b> Test if customers can sort menu items by price: <br>---------------------------<br>
         <br>
         Make a GET API call to the endpoint <a href="urls" class="urls"> http://127.0.0.1:8000/api/menu-items?ordering=price </a> <br>
         or <a href="urls" class="urls"> http://127.0.0.1:8000/api/menu-items?ordering=-price </a> ......... with a customer token.<br>
         <br>
         Are the menu items properly sorted by price in ascending or descending order for customers? <br> 1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can add menu items to the cart: <br>---------------------------<br>
+        <br> <b><i>Section2.8</i></b> Test if customers can add menu items to the cart: <br>---------------------------<br>
         <br>
         Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/cart/menu-items </a> ......... with a customer token. <br>Add these fields with valid data in the REQUEST body for menuitem, unit_price, quantity. <br>
         <br>
         Can customers add menu items to the cart? <br> 1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can see previously added items in the cart: <br>---------------------------<br>
+        <br> <b><i>Section2.9</i></b> Test if customers can see previously added items in the cart: <br>---------------------------<br>
         <br>
         Make a GET call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/cart/menu-items </a> .......... with a customer token. <br>
         <br>
         Are previous items added to the cart visible for customers? <br> 1 pt Yes | 0 pts No <br>
         <br>
-        Test if customers can place orders: <br>---------------------------<br>
+        <br> <b><i>Section3</i></b> Test if customers can place orders: <br>---------------------------<br>
         <br>
         Make a POST call to this endpoint <a href="urls" class="urls">http://127.0.0.1:8000/api/cart/orders </a> .....with a customer token. <br>
         Add only the date field with valid data in the REQUEST body. <br> Here is a sample date – 2022-11-16. <br>
