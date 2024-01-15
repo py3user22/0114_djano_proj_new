@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
         p {padding: 6px; border: 1px blue dashed;}
+        .apiv {color: red;}
     </style>
     <title>0115 django token-based authentication if DRF</title>
 </head>
@@ -19,7 +20,28 @@
 
         <br>
         <br>
-
+        __# <b><i>Create superuser</i></b> <br>-----------------<br>
+        >> py manage.py createsuperuser <br>
+        ...... |- name <br>
+        ...... |- email <br>
+        ...... |- password <br>
+        <br>
+        <br>
+        __# 127.0.0.1:8000/admin/ <br>---------------<br>
+        Home > Auth Token > Tokens > Add token <br>
+        User: < admin > from dropdown menu <br>
+        Save button <br>
+    </p>
+    <p>
+        ___# <b><i>views.py </i></b> <br>------------------- create a protected API endpoint<br>
+        <a href="apiv" class="apiv">@api_view()</a> <br>
+        def secret(request): <br>
+        .. return Response({"message":"some secret message0115"}) <br>
+        <br>
+        <br>
+        __# go to page <b><i>127.0.0.1:8000/api/secret</i></b> <br>---------------------shows the message, needs edit for encryption <br>
+          <br>
+         <br>
     </p>
 </body>
 </html>
