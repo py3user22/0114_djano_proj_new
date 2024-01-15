@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>122823' resume</title>
+    <style>
+        p { color: blue; border: green 1px dashed; }
+        a:hover { color: green; background-color: lightBlue; }
+        h1 { color: blue; border: 2px dashed;
+         padding: 0 255px 0 10px; border-radius: 15px 0 15px 0;
+         background-color: lightBlue; margin-right: 250px;
+        }
+        h1:hover { color: green }
+        h3 { color: blue; border: 2px solid blue;
+         padding: 0 15px 0 10px; margin-right: 250px;
+        }
+        h3:hover { color: green }
+    </style>
+</head>
+<body>
+    <h2>0114 notes for git install and other</h2>
+    <p>
+        1228 notes <br>
+        margin -----> <br>
+        .. | border  --------> <br>
+        ...|... | padding  ----------> <br>
+        ...|... |... |   output .. | <br>
+        ...|... |... |---------------> <br>
+    </p>
+    <p>
+        1228 to add remote repositories from your git bash cli <br> ----------------------<br>
+        1- go to your github webpage & create a new repository <br>
+        2- create a copy of the path url to the new repository <br>
+        3- optional: if havent already create a new token in github for access or regenerate one <br><br>
+        4- in git bash, cd to directory want to connect to the remote repo on github <br><br>
+        5- if havent already to initialize the directory for version control <br> --->> git init <br><br>
+        6- add a remote location for your github repo <br>_____#note: add the .git at end of path link<br>
+        >> git remote add origin < repo url path from github>.git <br><br><br>
+        </p>
+        <p>
+        7- check current git branch  # must match the branch name on github webpage <br>
+        _____# example is master for local, main for remote <br>
+        ---> git branch <br><br>
+        8- verify using cmd to show the fetch and push URLs for each remote <br>
+        ---> git remote -v <br>
+        <br>
+        9- to update the remote URL of repository <br>
+        ---> git remote set-url origin https://new.url/repo.git  <br>
+        <br>
+        10- if need to rename the current branch to match the remote repo <br>
+        _____note: default to local is master and default to remote is main <br>
+        >> git branch -m main  <br>
+        >> git push -u origin main <br><br>
+        _____ to change the remote branch to match the local <br>
+        >> git remote set-url origin https://github.com/py3user22/1228_django_renderers_demo.git master <br>
+        >> git push -u origin master <br>
+    </p>
+    <p>
+        New notes: <br>
+        If error for unrelated histories on the local and remote <br>
+        >> git merge origin/main --allow-unrelated-histories <br>
+        <br>
+        _________#syntax: >>  git pull < remote url> < branch> <br>-----------------<br>
+
+        >> git pull origin main <br>
+        <br>
+        >> $ git pull https://github.com/py3user22/1228_django_renderers_demo.git main <br>
+        From https://github.com/py3user22/1228_django_renderers_demo <br>
+        * branch            main       -> FETCH_HEAD <br>
+        fatal: refusing to merge unrelated histories <br>
+    </p>
+    <p>
+        __________#0114_notes demo2 <br>--------------<br>
+        to change to another branch <br>
+        >> git switch main-0114 <br>
+        <br><br>
+        to make another branch <br>
+        >> git branch -m main-0114 <br>
+        <br><br>
+        if branch does not exist locally, but exists on remote URL repo, <br>
+        use the <b><i>-c</i></b> option to create a new branch from the remote branch and switch to it <br>
+        ..........................      new branch, from remote branch <br>
+        >> git switch -c demo2-0114   origin/main/0114-demo2 <br>
+        <br>
+
+
+    </p>
+
+</body>
+</html>
