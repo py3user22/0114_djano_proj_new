@@ -4,6 +4,11 @@ from .serializers import MenuItemSerializer
 from .models import MenuItem
 
 
+
+
+
+
+# code from 0114
 def home(request):
     return render(request, '0114_django_demo.html', {})
 
